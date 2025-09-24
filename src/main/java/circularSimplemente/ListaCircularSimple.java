@@ -201,5 +201,24 @@ public class ListaCircularSimple<T> implements Iterable<T> {
         };
     }
 
+    public void borrarLista() {
+        cabeza = cola = null;
+        tamanio = 0;
+    }
+
+    public void invertirLista() {
+        if (tamanio <= 1) return;
+        cabeza = invertirRecursivo(cabeza, cola);
+        cola.setSiguiente(cabeza);
+    }
+
+    private NodoCircular<T> invertirRecursivo(NodoCircular<T> actual, NodoCircular<T> fin) {
+        if (actual == fin) return actual;
+        NodoCircular<T> nuevoCabeza = invertirRecursivo(actual.getSiguiente(), fin);
+        actual.getSiguiente().setSiguiente(actual);
+        actual.setSiguiente(cabeza); // al final apuntará al nuevo inicio
+        return nuevoCabeza;
+    }
+
 
 }
