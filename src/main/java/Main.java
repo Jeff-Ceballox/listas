@@ -36,5 +36,6 @@ public class Main {
         listaCircularDoble.insertarFinal("Z");
         listaCircularDoble.mostrarAdelante();
         listaCircularDoble.mostrarAtras();
+
     }
 }
